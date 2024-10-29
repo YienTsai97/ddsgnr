@@ -1,0 +1,28 @@
+---
+interface Props {
+  text?: string;
+  width?: string;
+  textColor?: string;
+  bgColor?: string;
+  borderColor?: string;
+  className?: string;
+}
+
+const {
+  text = "View more",
+  width = "w-full",
+  textColor = "text-black",
+  bgColor = "bg-white",
+  borderColor = "border-black",
+  className = "",
+} = Astro.props;
+
+const hoverBgColor = textColor === "text-white" ? "bg-white" : "bg-black";
+const hoverTextColor = textColor === "text-white" ? "text-black" : "text-white";
+---
+
+<button
+  class={`${className} border ${width} ${textColor} ${bgColor} ${borderColor} hover:${hoverBgColor} hover:${hoverTextColor} transition-all duration-300 py-3 px-6 max-w-full rounded`}
+>
+  {text}
+</button>

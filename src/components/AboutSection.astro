@@ -1,0 +1,106 @@
+---
+import "../styles/global.css";
+import Button from "./Button.astro";
+const text = "Book Your Appointment Now";
+const width = "w-auto";
+---
+
+<div
+    class="aboutUs section-container flex flex-col md:flex-row gap-[48px] md:gap-[80px]"
+>
+    <div
+        class="aboutUs-content w-[100%] md:w-[50%] flex flex-col gap-6 justify-center"
+    >
+        <p class="title text-[48px]/[57.6px] font-bold text-left w-[100%]">
+            About Us
+        </p>
+        <div class="content-groups flex flex-col md:grid md:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-[16px]">
+                <p class="subtitle text-[20px]/[28px] font-bold text-left">
+                    Our Mission
+                </p>
+                <p>
+                    At Ddsgnr Auto Repair, our mission is to provide our
+                    customers with the highest level of car care and customer
+                    service.
+                </p>
+            </div>
+            <div class="flex flex-col gap-[16px]">
+                <p class="subtitle text-[20px]/[28px] font-bold text-left">
+                    Our Expertise
+                </p>
+                <p>
+                    At Ddsgnr Auto Repair, our technicians are the heart and
+                    soul of our business. With years of experience and training,
+                </p>
+            </div>
+            <div class="flex flex-col gap-[16px]">
+                <p class="subtitle text-[20px]/[28px] font-bold text-left">
+                    Our Equipment
+                </p>
+                <p>
+                    At Ddsgnr Auto Repair, our technicians are the heart and
+                    soul of our business. With years of experience and training,
+                </p>
+            </div>
+            <div class="flex flex-col gap-[16px]">
+                <p class="subtitle text-[20px]/[28px] font-bold text-left">
+                    Our Customer Promise
+                </p>
+                <p>
+                    At Ddsgnr Auto Repair, our mission is to provide our
+                    customers with the highest level of car care and customer
+                    service.
+                </p>
+            </div>
+        </div>
+        <div class="content-bottom flex flex-row pt-4 gap-6">
+            <Button text={text} width={width} text-base />
+            <a class="flex flex-row items-center gap-2" href="#"
+                >Learn more <svg
+                    width="8"
+                    height="13"
+                    viewBox="0 0 8 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M6.96028 5.89234C7.17996 6.11202 7.17996 6.46812 6.96028 6.68779L1.22541 12.4227C1.00573 12.6423 0.649631 12.6423 0.429956 12.4227L0.164756 12.1575C-0.0549187 11.9378 -0.0549187 11.5817 0.164756 11.362L5.23671 6.29007L0.164756 1.21812C-0.0549186 0.998442 -0.0549186 0.642341 0.164756 0.422667L0.429956 0.157467C0.649631 -0.0622082 1.00573 -0.0622082 1.22541 0.157467L6.96028 5.89234Z"
+                        fill="black"></path>
+                </svg></a
+            >
+        </div>
+    </div>
+    <div class="aboutUs-video w-[100%] md:w-[50%] flex items-center relative">
+        <img
+            class="object-cover object-bottom w-[100%] h-[360px] md:h-[541.5px] rounded-[5px]"
+            src="aboutUs/aboutUs.jpeg"
+            alt=""
+        />
+        <button
+            class="about-video-btn bg-black/15 w-[128px] h-[102.4px] rounded-2xl inline-flex items-center justify-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
+            ><svg
+                width="
+                54"
+                height="54"
+                viewBox="0 0 54 54"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0.333008 27.0002C0.333008 12.2726 12.2721 0.333496 26.9997 0.333496C34.0721 0.333496 40.8549 3.14302 45.8559 8.14396C50.8568 13.145 53.6663 19.9278 53.6663 27.0002C53.6663 41.7278 41.7273 53.6669 26.9997 53.6669C12.2721 53.6669 0.333008 41.7278 0.333008 27.0002ZM22.1198 38.4136L37.6664 28.7069C38.2482 28.3343 38.6001 27.6911 38.6001 27.0002C38.6001 26.3094 38.2482 25.6661 37.6664 25.2936L22.0664 15.5869C21.452 15.1995 20.6758 15.1757 20.0388 15.5246C19.4018 15.8736 19.004 16.5405 18.9998 17.2669V36.7336C18.9912 37.4776 19.3963 38.1649 20.0514 38.5176C20.7065 38.8704 21.5033 38.8303 22.1198 38.4136Z"
+                    fill="white"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+</style>

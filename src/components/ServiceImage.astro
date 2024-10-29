@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+const { id, title } = Astro.props;
+---
+
+<div class="sm:max-w-[416px] w-full sm:w-[calc(33%-20px)] relative">
+  <Image
+    src={`/service/Image-${id}.svg`}
+    alt="hogehuga"
+    width={800}
+    height={300}
+  />
+  <h5 class="absolute bottom-6 left-4 text-white h-[34px]">
+    {title}
+  </h5>
+</div>

@@ -1,0 +1,145 @@
+---
+import { Image } from "astro:assets";
+import ServiceImage from "./ServiceImage.astro";
+import Button from "./Button.astro";
+
+const firstRowLogos = [
+  { id: 1, alt: "KIA moters" },
+  { id: 2, alt: "bmw" },
+  { id: 3, alt: "melcedes" },
+  { id: 4, alt: "hyundai" },
+  { id: 5, alt: "honda" },
+  { id: 6, alt: "aqua" },
+  { id: 7, alt: "racing" },
+];
+
+const secondRowLogos = [
+  { id: 4, alt: "hyundai" },
+  { id: 1, alt: "KIA moters" },
+  { id: 3, alt: "melcedes" },
+  { id: 7, alt: "racing" },
+];
+
+const hiddenLogos = [
+  { id: 2, alt: "bmw" },
+  { id: 5, alt: "honda" },
+  { id: 6, alt: "aqua" },
+];
+
+const firstRowServices = [
+  { id: 1, title: "Engine services" },
+  { id: 2, title: "Air conditioning" },
+  { id: 3, title: "Engine services" },
+];
+
+const secondRowServices = [
+  { id: 2, title: "Engine management" },
+  { id: 4, title: "Steering" },
+  { id: 5, title: "Wheel" },
+];
+---
+
+<div class="py-20 px-16 flex flex-col gap-6 justify-center items-center">
+  <p class="hidden sm:block text-lg font-bold">We work on</p>
+  <p class="hidden sm:block text-[32px] font-bold">All Makes & Models</p>
+  <p class="sm:hidden text-[32px] font-bold text-center">
+    We work on All Makes & Models
+  </p>
+  <div class="flex flex-col gap-6">
+    <div class="hidden md:flex gap-12 justify-center">
+      {
+        firstRowLogos.map((logo) => (
+          <div>
+            <Image
+              src={`/logo/logo${logo.id}.svg`}
+              alt={logo.alt}
+              width={100}
+              height={100}
+            />
+          </div>
+        ))
+      }
+    </div>
+    <div class="flex flex-col sm:flex-row gap-12 justify-center items-center">
+      {
+        secondRowLogos.map((logo) => (
+          <div>
+            <Image
+              src={`/logo/logo${logo.id}.svg`}
+              alt={logo.alt}
+              width={100}
+              height={100}
+            />
+          </div>
+        ))
+      }
+      {
+        hiddenLogos.map((logo) => (
+          <div class="hidden hidden-logos">
+            <Image
+              src={`/logo/logo${logo.id}.svg`}
+              alt={logo.alt}
+              width={100}
+              height={100}
+            />
+          </div>
+        ))
+      }
+    </div>
+    <div class="block sm:hidden gap-12 justify-center w-[calc(100vw-48px)]">
+      <Button className="logos-show-btn" />
+    </div>
+  </div>
+</div>
+
+<div class="section-gray">
+  <div
+    class="section-container flex flex-col gap-20 justify-center items-center"
+  >
+    <div class="flex flex-col gap-4 self-start md:self-auto">
+      <h2 class="text-start md:text-center">Our Services</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row flex-wrap gap-8">
+      {
+        firstRowServices.map((service) => (
+          <ServiceImage id={service.id} title={service.title} />
+        ))
+      }
+    </div>
+    <div class="hidden sm:flex sm:flex-row flex-wrap gap-8" id="service-row-2">
+      {
+        secondRowServices.map((service) => (
+          <ServiceImage id={service.id} title={service.title} />
+        ))
+      }
+    </div>
+    <div class="block sm:hidden w-full justify-center">
+      <Button bgColor="bg-[#f7f7f7]" className="service-show-btn" />
+    </div>
+  </div>
+</div>
+
+<script>
+  const logosShowBtn = document.querySelector(".logos-show-btn");
+  const serviceShowBtn = document.querySelector(".service-show-btn");
+  document.addEventListener("DOMContentLoaded", () => {
+    logosShowBtn.addEventListener("click", (e) => {
+      const hiddenLogos = document.querySelectorAll(".hidden-logos");
+      hiddenLogos.forEach((logo) => {
+        logo.classList.remove("hidden");
+      });
+      logosShowBtn.classList.add("hidden");
+    });
+
+    serviceShowBtn.addEventListener("click", (e) => {
+      const hiddenRow = document.getElementById("service-row-2");
+      if (hiddenRow) {
+        hiddenRow.classList.remove("hidden");
+        hiddenRow.classList.add("flex");
+        hiddenRow.classList.add("-mt-12");
+        serviceShowBtn.classList.add("hidden");
+      }
+    });
+  });
+</script>

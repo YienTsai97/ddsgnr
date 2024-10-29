@@ -1,0 +1,238 @@
+---
+import "../styles/global.css";
+import Button from "./Button.astro";
+const text = "Contact";
+---
+
+<div class="section-container flex flex-col items-center gap-12 h-auto">
+    <div
+        class="faq-main-section w-full md:w-[768px] h-full flex flex-col gap-12 md:gap-20 justify-between"
+    >
+        <div class="faq-title flex flex-col gap-6 text-left md:text-center">
+            <p class="text-[32px]/[41.6px] md:text-[48px]/[57.6px] font-bold">
+                FAQs
+            </p>
+            <p class="text-[18px]/[27px] font-normal">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse varius enim in eros elementum tristique.
+            </p>
+        </div>
+
+        <div
+            class="faq-question-toggle-slide flex flex-col gap-4 w-full h-auto min-h-[424px]"
+        >
+            <div
+                class="question1 cursor-pointer border-black border-[1px] px-6 py-5 flex flex-col gap-4"
+            >
+                <div
+                    class="js-toggle flex flex-row w-full justify-between items-center"
+                    data-container="toggle-1"
+                >
+                    <p class="text-[18px]/[27px] font-bold">
+                        Question text goes here
+                    </p>
+                    <svg
+                        width="32"
+                        height="33"
+                        viewBox="0 0 32 33"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M25.3336 16.167V16.8336C25.3336 17.2018 25.0352 17.5003 24.667 17.5003H17.0003V25.167C17.0003 25.5351 16.7018 25.8336 16.3336 25.8336H15.667C15.2988 25.8336 15.0003 25.5351 15.0003 25.167V17.5003H7.33366C6.96547 17.5003 6.66699 17.2018 6.66699 16.8336V16.167C6.66699 15.7988 6.96547 15.5003 7.33366 15.5003H15.0003V7.83365C15.0003 7.46546 15.2988 7.16699 15.667 7.16699H16.3336C16.7018 7.16699 17.0003 7.46546 17.0003 7.83365V15.5003H24.667C25.0352 15.5003 25.3336 15.7988 25.3336 16.167Z"
+                            fill="black"></path>
+                    </svg>
+                </div>
+                <div class="toggle-container" id="toggle-1">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Aliquid est unde sit. Fugit accusantium ratione quia
+                    tenetur! Earum necessitatibus quidem illum quod ipsam sequi
+                    officiis at! Tempore sint incidunt aperiam..
+                </div>
+            </div>
+
+            <div
+                class="question2 cursor-pointer border-black border-[1px] px-6 py-5 flex flex-col gap-4"
+            >
+                <div
+                    class="js-toggle flex flex-row w-full justify-between items-center"
+                    data-container="toggle-2"
+                >
+                    <p class="text-[18px]/[27px] font-bold">
+                        Question text goes here
+                    </p>
+                    <svg
+                        width="32"
+                        height="33"
+                        viewBox="0 0 32 33"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M25.3336 16.167V16.8336C25.3336 17.2018 25.0352 17.5003 24.667 17.5003H17.0003V25.167C17.0003 25.5351 16.7018 25.8336 16.3336 25.8336H15.667C15.2988 25.8336 15.0003 25.5351 15.0003 25.167V17.5003H7.33366C6.96547 17.5003 6.66699 17.2018 6.66699 16.8336V16.167C6.66699 15.7988 6.96547 15.5003 7.33366 15.5003H15.0003V7.83365C15.0003 7.46546 15.2988 7.16699 15.667 7.16699H16.3336C16.7018 7.16699 17.0003 7.46546 17.0003 7.83365V15.5003H24.667C25.0352 15.5003 25.3336 15.7988 25.3336 16.167Z"
+                            fill="black"></path>
+                    </svg>
+                </div>
+                <div class="toggle-container" id="toggle-2">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Aliquid est unde sit. Fugit accusantium ratione quia
+                    tenetur! Earum necessitatibus quidem illum quod ipsam sequi
+                    officiis at! Tempore sint incidunt aperiam..
+                </div>
+            </div>
+
+            <div
+                class="question3 cursor-pointer border-black border-[1px] px-6 py-5 flex flex-col gap-4"
+            >
+                <div
+                    class="js-toggle flex flex-row w-full justify-between items-center"
+                    data-container="toggle-3"
+                >
+                    <p class="text-[18px]/[27px] font-bold">
+                        Question text goes here
+                    </p>
+                    <svg
+                        width="32"
+                        height="33"
+                        viewBox="0 0 32 33"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M25.3336 16.167V16.8336C25.3336 17.2018 25.0352 17.5003 24.667 17.5003H17.0003V25.167C17.0003 25.5351 16.7018 25.8336 16.3336 25.8336H15.667C15.2988 25.8336 15.0003 25.5351 15.0003 25.167V17.5003H7.33366C6.96547 17.5003 6.66699 17.2018 6.66699 16.8336V16.167C6.66699 15.7988 6.96547 15.5003 7.33366 15.5003H15.0003V7.83365C15.0003 7.46546 15.2988 7.16699 15.667 7.16699H16.3336C16.7018 7.16699 17.0003 7.46546 17.0003 7.83365V15.5003H24.667C25.0352 15.5003 25.3336 15.7988 25.3336 16.167Z"
+                            fill="black"></path>
+                    </svg>
+                </div>
+                <div class="toggle-container" id="toggle-3">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Aliquid est unde sit. Fugit accusantium ratione quia
+                    tenetur! Earum necessitatibus quidem illum quod ipsam sequi
+                    officiis at! Tempore sint incidunt aperiam..
+                </div>
+            </div>
+
+            <div
+                class="question4 cursor-pointer border-black border-[1px] px-6 py-5 flex flex-col gap-4"
+            >
+                <div
+                    class="js-toggle flex flex-row w-full justify-between items-center"
+                    data-container="toggle-4"
+                >
+                    <p class="text-[18px]/[27px] font-bold">
+                        Question text goes here
+                    </p>
+                    <svg
+                        width="32"
+                        height="33"
+                        viewBox="0 0 32 33"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M25.3336 16.167V16.8336C25.3336 17.2018 25.0352 17.5003 24.667 17.5003H17.0003V25.167C17.0003 25.5351 16.7018 25.8336 16.3336 25.8336H15.667C15.2988 25.8336 15.0003 25.5351 15.0003 25.167V17.5003H7.33366C6.96547 17.5003 6.66699 17.2018 6.66699 16.8336V16.167C6.66699 15.7988 6.96547 15.5003 7.33366 15.5003H15.0003V7.83365C15.0003 7.46546 15.2988 7.16699 15.667 7.16699H16.3336C16.7018 7.16699 17.0003 7.46546 17.0003 7.83365V15.5003H24.667C25.0352 15.5003 25.3336 15.7988 25.3336 16.167Z"
+                            fill="black"></path>
+                    </svg>
+                </div>
+                <div class="toggle-container" id="toggle-4">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Aliquid est unde sit. Fugit accusantium ratione quia
+                    tenetur! Earum necessitatibus quidem illum quod ipsam sequi
+                    officiis at! Tempore sint incidunt aperiam..
+                </div>
+            </div>
+
+            <div
+                class="question5 cursor-pointer border-black border-[1px] px-6 py-5 flex flex-col gap-4"
+            >
+                <div
+                    class="js-toggle flex flex-row w-full justify-between items-center"
+                    data-container="toggle-5"
+                >
+                    <p class="text-[18px]/[27px] font-bold">
+                        Question text goes here
+                    </p>
+                    <svg
+                        width="32"
+                        height="33"
+                        viewBox="0 0 32 33"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M25.3336 16.167V16.8336C25.3336 17.2018 25.0352 17.5003 24.667 17.5003H17.0003V25.167C17.0003 25.5351 16.7018 25.8336 16.3336 25.8336H15.667C15.2988 25.8336 15.0003 25.5351 15.0003 25.167V17.5003H7.33366C6.96547 17.5003 6.66699 17.2018 6.66699 16.8336V16.167C6.66699 15.7988 6.96547 15.5003 7.33366 15.5003H15.0003V7.83365C15.0003 7.46546 15.2988 7.16699 15.667 7.16699H16.3336C16.7018 7.16699 17.0003 7.46546 17.0003 7.83365V15.5003H24.667C25.0352 15.5003 25.3336 15.7988 25.3336 16.167Z"
+                            fill="black"></path>
+                    </svg>
+                </div>
+                <div class="toggle-container" id="toggle-5">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Aliquid est unde sit. Fugit accusantium ratione quia
+                    tenetur! Earum necessitatibus quidem illum quod ipsam sequi
+                    officiis at! Tempore sint incidunt aperiam..
+                </div>
+            </div>
+        </div>
+
+        <div class="question flex flex-col items-center justify-end gap-6">
+            <div class="question-subtitle text-center flex flex-col gap-4">
+                <p class="text-[32px]/[41.6px] font-bold">
+                    Still have a question?
+                </p>
+                <p class="text-[18px]/[27px] font-normal">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="w-full md:w-[104px]">
+                <Button text={text} text-base />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let linkToggle = document.querySelectorAll(".js-toggle");
+    let i;
+
+    for (i = 0; i < linkToggle.length; i++) {
+        linkToggle[i].addEventListener("click", function (event) {
+            event.preventDefault();
+
+            let container = document.getElementById(this.dataset.container);
+
+            if (!container.classList.contains("active")) {
+                container.classList.add("active");
+                container.style.height = "auto";
+
+                var height = container.clientHeight + "px";
+
+                container.style.height = "0px";
+
+                setTimeout(function () {
+                    container.style.height = height;
+                }, 0);
+            } else {
+                container.style.height = "0px";
+
+                container.addEventListener(
+                    "transitionend",
+                    function () {
+                        container.classList.remove("active");
+                    },
+                    {
+                        once: true,
+                    },
+                );
+            }
+        });
+    }
+</script>
+
+<style>
+    .toggle-container {
+        transition: height 0.4s ease-in-out;
+        overflow: hidden;
+    }
+
+    .toggle-container:not(.active) {
+        display: none;
+    }
+</style>

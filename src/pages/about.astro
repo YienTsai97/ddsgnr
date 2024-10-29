@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AboutSection from "@/components/AboutSection.astro";
+import AboutOurMission from "@/components/AboutOurMission.astro";
+const title = "About Page";
+---
+
+<Layout title={title}>
+    <AboutSection />
+    <div class="hidden md:block"><AboutOurMission /></div>
+</Layout>

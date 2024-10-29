@@ -1,0 +1,242 @@
+<div
+  class="flex flex-col gap-8 lg:gap-20 justify-center items-start md:items-center w-full lg:w-[calc(50%-40px)]"
+>
+  <div class="flex flex-col gap-4 self-start">
+    <div class="hidden md:block font-semibold">Tagline</div>
+    <h2 class="text-start">Contact Us</h2>
+    <p class="text-lg w-[334px]">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+  </div>
+
+  <form class="w-full max-w-lg sm:max-w-full" id="contactForm">
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          class="block tracking-wide text-xs font-bold mb-2"
+          for="firstname"
+        >
+          First name
+        </label>
+        <input
+          class="appearance-none block w-full border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
+          id="firstname"
+          type="text"
+          required
+        />
+      </div>
+      <div class="w-full md:w-1/2 px-3">
+        <label
+          class="block tracking-wide text-xs font-bold mb-2"
+          for="lastname"
+        >
+          Last name
+        </label>
+        <input
+          class="appearance-none block w-full border border-black rounded py-3 px-4 leading-tight focus:outline-none"
+          id="lastname"
+          type="text"
+          required
+        />
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full md:w-1/2 px-3">
+        <label class="block tracking-wide text-xs font-bold mb-2" for="phone">
+          Phone number
+        </label>
+        <input
+          class="appearance-none block w-full border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
+          id="phone"
+          type="tel"
+          required
+        />
+      </div>
+      <div class="w-full md:w-1/2 px-3">
+        <label class="block tracking-wide text-xs font-bold mb-2" for="email">
+          Email
+        </label>
+        <input
+          class="appearance-none block w-full border border-black rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
+          id="email"
+          type="email"
+          required
+        />
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label class="block tracking-wide text-xs font-bold mb-2" for="subject">
+          Select service
+        </label>
+        <select
+          class="block appearance-none w-full border border-black rounded py-3 px-4 pr-8 leading-tight focus:outline-none"
+          id="subject"
+        >
+          <option></option>
+          <option>Engine Service</option>
+          <option>Air Conditioning</option>
+          <option>Wheel</option>
+        </select>
+        <img src="icon/chevron-down.svg" />
+      </div>
+      <div class="w-full md:w-1/2 px-3">
+        <label
+          class="block tracking-wide text-xs font-bold mb-2"
+          for="appointment-date"
+        >
+          Appointment date
+        </label>
+        <select
+          class="block appearance-none w-full border border-black rounded py-3 px-4 pr-8 leading-tight focus:outline-none"
+          id="appointment-date"
+        >
+          <option></option>
+          <option>2024/09/09</option>
+          <option>2024/09/10</option>
+          <option>2024/09/11</option>
+        </select>
+        <img src="icon/chevron-down.svg" />
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label class="block tracking-wide text-xs font-bold mb-2" for="message">
+          Message
+        </label>
+        <textarea
+          class="block w-full border h-[180px] border-black rounded py-3 px-4 mb-3 leading-tight placeholder:text-slate-800 placeholder:text-sm focus:outline-none"
+          id="message"
+          placeholder="Type your message..."></textarea>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3 flex items-start">
+        <label class="block font-bold">
+          <input class="mr-2 text-lg h-[18px] w-[18px]" type="checkbox" />
+          <span class="text-sm">
+            I accept the <span class="underline hover:cursor-pointer"
+              >Terms</span
+            >
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 md:mx-0 mb-6">
+      <div class="w-full md:w-24">
+        <button
+          id="submit"
+          class="w-full border border-black bg-black text-white font-bold py-2 px-4 rounded focus:outline-none hover:bg-white hover:text-black transition-all duration-300"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+></script>
+
+<script>
+  function validateForm(form: HTMLFormElement) {
+    let isValid = true;
+    const errorMessages = {};
+
+    // check required fields
+    const requiredFields = form.querySelectorAll("[required]");
+    requiredFields.forEach(
+      (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
+        if (!field.value.trim()) {
+          isValid = false;
+          errorMessages[field.id] = "This field is required.";
+        }
+      }
+    );
+    if (isValid) {
+      return { isValid, errorMessages };
+    }
+
+    // validate email
+    const emailField = form.querySelector("#email") as HTMLInputElement;
+    if (emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+      isValid = false;
+      errorMessages["email"] = "Please enter a valid email address.";
+    }
+
+    // validate phone number
+    const phoneField = form.querySelector("#phone") as HTMLInputElement;
+    if (phoneField && !/^\d{10,}$/.test(phoneField.value.replace(/\D/g, ""))) {
+      isValid = false;
+      errorMessages["phone"] = "Please enter a valid phone number.";
+    }
+
+    return { isValid, errorMessages };
+  }
+
+  function displayErrorMessages(errorMessages: Record<string, string>) {
+    // clear old error messages
+    document.querySelectorAll(".error-message").forEach((el) => el.remove());
+
+    // display error messages
+    for (const [fieldId, message] of Object.entries(errorMessages)) {
+      const field = document.getElementById(fieldId);
+      if (field) {
+        const errorElement = document.createElement("p");
+        errorElement.className = "error-message text-red-500 text-xs mt-1";
+        errorElement.textContent = message;
+        field.parentNode.insertBefore(errorElement, field.nextSibling);
+      }
+    }
+  }
+  (function () {
+    // @ts-ignore
+    emailjs.init({
+      publicKey: "lMrxTTBdombnAKjDJ",
+    });
+  })();
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm") as HTMLFormElement;
+
+    const submitButton = document.getElementById("submit");
+
+    submitButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      const { isValid, errorMessages } = validateForm(form);
+      if (!isValid) {
+        displayErrorMessages(errorMessages);
+        return;
+      }
+
+      const formData = {
+        firstName: (document.getElementById("firstname") as HTMLInputElement)
+          .value,
+        lastName: (document.getElementById("lastname") as HTMLInputElement)
+          .value,
+        phoneNumber: (document.getElementById("phone") as HTMLInputElement)
+          .value,
+        user_email: (document.getElementById("email") as HTMLInputElement)
+          .value,
+        subject: (document.getElementById("subject") as HTMLSelectElement)
+          .value,
+        message: (document.getElementById("message") as HTMLTextAreaElement)
+          .value,
+        acceptTerms: (
+          document.querySelector('input[type="checkbox"]') as HTMLInputElement
+        ).checked,
+      };
+
+      // @ts-ignore
+      emailjs.send("dsgnr", "template_reply", formData).then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
+    });
+  });
+</script>

@@ -1,0 +1,59 @@
+---
+import Image from "astro/components/Image.astro";
+import ContactForm from "./ContactForm.astro";
+const contactInfo = [
+  { icon: "mail", title: "Email", object: "hello@Dsgnr.io" },
+  { icon: "chat", title: "Live chat", object: "Start new chat" },
+  { icon: "phone", title: "Phone", object: "+1 (123) 456-7890", type: "tel" },
+  { icon: "office", title: "Office", object: "123 Main St, City, Country" },
+];
+---
+
+<div
+  class="section-container flex flex-col gap-8 lg:gap-20 justify-center items-start md:items-center"
+>
+  <div class="flex flex-col gap-4 self-start md:self-auto">
+    <h2 class="text-start md:text-center">Contact Us</h2>
+    <p class="text-lg">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+  </div>
+  <div class="flex flex-col md:flex-row gap-8 self-start md:self-auto">
+    {
+      contactInfo.map((info) => (
+        <div class="flex flex-col gap-6 border-1 border-black">
+          <div>
+            <Image
+              src={`/icon/contact/${info.icon}.svg`}
+              alt={info.icon}
+              width={26.67}
+              height={21.33}
+            />
+          </div>
+          <div class="flex flex-col gap-4">
+            <p class="text-[20px] font-bold">{info.title}</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in ero.
+            </p>
+          </div>
+          <p class="underline underline-offset-1">{info.object}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>
+<div class="section-gray">
+  <div class="section-container lg:flex lg:gap-20 justify-center">
+    <ContactForm />
+    <div class="hidden lg:block w-[calc(50%-40px)]">
+      <Image
+        src="/contact/form-img.svg"
+        class="object-none w-full h-full"
+        alt="contact me!"
+        width={616}
+        height={838}
+      />
+    </div>
+  </div>
+</div>
